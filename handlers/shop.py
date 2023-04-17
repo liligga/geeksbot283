@@ -10,6 +10,7 @@ async def show_categories(message: types.Message):
         f"Выберите категорию ниже:",
         reply_markup=kb
     )
+    
 
 
 async def show_books(message: types.Message):

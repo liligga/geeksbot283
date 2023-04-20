@@ -36,9 +36,19 @@ async def process_age(message: types.Message, state: FSMContext):
             data['age'] = int(age)
             print(data)
 
-        # await Survey.next()
-        # await message.answer("Ваш пол?")
-        await state.finish()
+        await Survey.next()
+
+        kb = types.ReplyKeyboardMarkup()
+        kb.add("Мужской", "Женский")
+        await message.answer("Ваш пол?", reply_markup=kb)
+
+
+async def process_gender(message: types.Message, state: FSMContext):
+    data = await state.get_data()
+
+    print(data, message.text, message.from_user.id)
+    await message.answer("Спасибо за ваше время, которое вы уделили нам")
+    await state.finish()
 
 
 

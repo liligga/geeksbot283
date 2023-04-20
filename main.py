@@ -8,6 +8,7 @@ from handlers.survey_fsm import (
     start_survey,
     process_name,
     process_age,
+    process_gender,
     Survey    
 )
 import logging
@@ -32,6 +33,7 @@ if __name__ == "__main__":
     dp.register_message_handler(start_survey, commands=["surv"])
     dp.register_message_handler(process_name, state=Survey.name)
     dp.register_message_handler(process_age, state=Survey.age)
+    dp.register_message_handler(process_gender, state=Survey.gender)
 
     dp.register_message_handler(echo)
 

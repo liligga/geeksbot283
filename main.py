@@ -11,7 +11,20 @@ from handlers.survey_fsm import (
     process_gender,
     Survey    
 )
+from db.base import (
+    init_db,
+    create_tables,
+    insert_products,
+    delete_products
+)
 import logging
+
+
+async def start_up(_):
+    init_db()
+    delete_products()
+    create_tables()
+    insert_products()
 
 
 
@@ -37,4 +50,4 @@ if __name__ == "__main__":
 
     dp.register_message_handler(echo)
 
-    executor.start_polling(dp)
+    executor.start_polling(dp, on_startup=start_up)

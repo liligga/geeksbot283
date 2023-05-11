@@ -32,7 +32,7 @@ async def start_reminder(message: types.Message):
         send_reminder,
         'cron',
         # month=5, day_of_week="mon-fri", hour=16, minute="49,50",
-        day_of_week="last sat", hour=17, minute=11,
+        day_of_week="sat", hour=17, minute=11,
         # week="1-10". day_of_week="mon"
         args=(message.from_user.id,)
     )

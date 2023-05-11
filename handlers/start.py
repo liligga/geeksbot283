@@ -4,7 +4,6 @@ from aiogram import types
 # @dp.message_handler(commands=["start", "go"])
 async def start(message: types.Message):
     kb = types.InlineKeyboardMarkup()
-
     kb.add(
         types.InlineKeyboardButton("О нас", callback_data="about"),
         types.InlineKeyboardButton("Наш сайт", url="https://google.com")
